@@ -10,7 +10,7 @@ import (
 )
 
 // URI is the database URI access
-const URI = `mongodb+srv://McAssly:5zIXhG8756789ibj@testing-lugq4.gcp.mongodb.net/test?retryWrites=true&w=majority`
+const URI = 'uri';
 
 // UserDB is the user database structure
 type UserDB struct {
