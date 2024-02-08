@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            {{if .Current.LoggedIn}}
+            <li><h1 id="title">Welcome Home</h1></li>
+            <li><a href="/{{.Current.Current.Username}}-{{.Current.Current.WebID}}" class="hvr-out">{{.Current.Current.Username}}</a></li>
+            {{else}}
+            <li><h1 id="title">This is Home</h1></li>
+            <li><a href="/login" class="hvr-out">Login</a></li>
+            <li><a href="/sign-up" class="hvr-out">Sign Up</a></li>
+            {{end}}
+        </ul>
+    </nav>
+    {{if .Current.LoggedIn}}
+    <div class="messages">
+        {{.HTMLMessages}}
+    </div>
+    <div class="msgs">
+        <form action="/send" method="POST">
+        <input type="text" name="message" id="send" autocomplete="off" class="text-box">
+        <input type="submit" value="Send">
+        </form>
+    </div>
+    {{else}}
+    <div class="body">
+        You are not logged in
+    </div>
+    {{end}}
+</body>
+</html>

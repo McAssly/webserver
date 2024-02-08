@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+
+:root {
+    --foreground: #40302C;
+    --background: #F2E8DC;
+    --messages: rgb(87, 98, 131);
+    --name: rgb(255, 177, 109);
+    --trash: #8C4949;
+    --highlight: #FFC229;
+    --slideback: #292946;
+    --slidefor: #FFA140;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Bitter';
+    margin: 0;
+}
+
+::selection {
+    color: var(--background);
+    background: var(--highlight);
+}
+
+.body {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+    width: 25%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav {
+    background: var(--foreground);
+    color: var(--background);
+    margin: 0;
+    padding: 0.25em;
+}
+
+#title {
+    font-size: 2em;
+    float:left;
+    margin: 0.5em;
+}
+
+a {
+    padding: 0.75em;
+    font-size: 1.75em;
+    float:right;
+    text-align: center;
+    color: var(--background);
+    text-decoration: none;
+    transition-property: background, color;
+    transition-duration: 0.4s;
+}
+
+a:hover {
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.txtbox {
+    width: 300px;
+    padding: 0.5em;
+    font-size: 0.5em;
+    border: none;
+    margin-bottom: 10px;
+    background: var(--foreground);
+    color: var(--background);
+    transition-property: background, outline, color;
+    transition-duration: 0.2s;
+}
+
+.txtbox:hover, .txtbox:focus {
+    background: var(--background);
+    color: var(--foreground);
+    outline: var(--foreground) 2px solid;
+    outline-offset: -1px;
+}
+
+input[type=submit] {
+    padding: 0.5em;
+    cursor: pointer;
+    font-size: 0.8em;
+    border: none;
+    background: var(--foreground);
+    color: var(--background);
+    transition-property: background, color;
+    transition-duration: 0.4s;
+}
+
+input[type=submit]:hover {
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.messages {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: var(--messages);
+    color: var(--background);
+    outline: 3px solid var(--foreground);
+    padding: 1em;
+}
+
+.msgs {
+    width: 22.5%;
+    margin: 0 auto;
+}
+
+.text-box {
+    font-size: 1.125em;
+    width: 15em;
+    height: auto;
+    transition: outline 0.05s;
+}
+
+.usrname {
+    color: var(--name)
+}
+
+.text-box:hover, .text-box:focus {
+    outline: var(--foreground) 2px solid;
+    outline-offset: -1px;
+}

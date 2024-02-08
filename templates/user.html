@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Username}}</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/images.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="../public/js/images.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><h1 id="title">Welcome {{.Username}}</h1></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <!-- UPLOADS -->
+    <div class="up-body">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="submit" value="upload" id="up-button"/>
+            <input type="file" name="uploadfile" id="up-file"/>
+            <label for="up-file" class="up-file-btn">
+                <span>
+                    select
+                </span>
+                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+            </label>
+        </form>
+    </div>
+    <!-- IMAGES -->
+    <div class="image-body">
+        {{range $i, $b := .Files}}
+            <div class="image-container">
+                <form action="/r={{$b}}" method="POST" class="image-form">
+                    <input type="submit" value="" class="trash" id="{{$b}}">
+                    <label for="{{$b}}">
+                        <i class="fa fa-trash" aria-hidden="true" id="trash-can"></i>
+                    </label>
+                </form>
+                <img src="private/img/{{$b}}" onclick="openModal();currentSlide({{$i}})" alt="nil">
+            </div>
+        {{end}}
+    </div>
+    <!-- The Image Enlargment slideshow -->
+    <div id="modal" class="mdl">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            {{range $i, $b := .Files}}
+                <div class="slides" style="margin-top: -50px;">
+                    <div class="numbertext">{{$i}}</div>
+                    <img src="private/img/{{$b}}" class="slideImage">
+                </div>
+            {{end}}
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+</body>
+</html>
